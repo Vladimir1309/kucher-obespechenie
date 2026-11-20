@@ -38,3 +38,55 @@
 
 // console.log(user.parents.mother.email);
 
+
+
+// console.log ( document.body );
+
+
+
+let randomNumber = Math.floor(Math.random() * 100);
+console.log(randomNumber);
+
+let button = document.querySelector("button");
+let input = document.querySelector("input");
+let mainText = document.querySelector('mainText');
+
+// Таймер
+let timer = document.querySelector('.timer');
+
+let maxSeconds = 100;
+let currentSeconds = maxSeconds;
+
+timer.innerText = currentSeconds;
+
+const timerId = setInterval(() => {
+    if (currentSeconds < 1) {
+        alert("Время кончилось")
+        clearInterval(timerId);
+        button.disabled = true;
+        input.disabled = true;
+        return;
+    }
+
+    currentSeconds--;
+    timer.innerText = currentSeconds;
+}, 1000);
+
+function handleClick() {
+    if (input.value == randomNumber) {
+        mainText.innerText = "Победа ✔"
+        clearInterval(timerId);
+        button.disabled = true;
+        input.disabled = true;
+    }
+    else if (input.value < randomNumber) {
+        mainText.innerText = "Больше"
+    }
+    else {
+        mainText.innerText = "Меньше"
+    }
+}
+
+// button.addEventListener("click", handleClick)
+
+button.onclick = handleClick;
