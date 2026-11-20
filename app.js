@@ -49,7 +49,7 @@ console.log(randomNumber);
 
 let button = document.querySelector("button");
 let input = document.querySelector("input");
-let mainText = document.querySelector('mainText');
+let mainText = document.querySelector('.mainText');
 
 // Таймер
 let timer = document.querySelector('.timer');
